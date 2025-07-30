@@ -24,33 +24,33 @@ The **Tribal_Lands_and_Tracts** layer is a union of two layers, PRO_Indian_Lands
 
 **Demographic_analysis_layer_2023** is a compilation of 2020 block-level population data and 2023 data from the CA_Demographics layer. This layer is what the Summarize Demographics tool utilizes for its estimates. In most cases, the user can ignore this layer.
 
-**Setup**
+### Setup
 
 1)  Download the zipped 'CA_Demographic_Analysis' folder and extract files to your working folder. Open ArcGIS Pro. In the Catalog pane, right-click 'Folders' and click 'Add Folder Connection' to add the working folder where you saved the data. Be sure to select the *folder* that contains the files and not any particular file. In the 'CA_Demographic_Analysis' folder, you will see the 'Summarize_Demographics' toolbox and the 'CA_Demographic_Analysis_layers' package.
 
-    <img src="https://github.com/user-attachments/assets/46d2b518-27a5-4e38-b090-db57e10f4038" alt="Image" width="1415" height="845"/>
+    <img src="https://github.com/user-attachments/assets/cf91ca01-751d-4b10-9193-d41b91ae5200" alt="Image" width="1371" height="818"/>
 
 2)  To view the layers in the layer package, drag and drop 'CA_Demographic_Analysis_layers.lpkx' onto the map. Also, click on the triangle next to the 'Summarize_Demographics' toolbox to show the 'Summarize Demographics' tool underneath.
 
-    <img src="https://github.com/user-attachments/assets/88d7278f-b43e-41e5-bf76-f73bec75681a" alt="Image" width="1371" height="822"/>
+    <img src="https://github.com/user-attachments/assets/a19559cf-21b8-4aea-9df4-6eb65f120ef5" alt="Image" width="1415" height="845"/>
 
 3)  Assuming you already have shapefiles (.shp) or geodatabase (.gdb) files for your boundaries of interest, connect to where those files are located by right-clicking on 'Folders' in the Catalog pane again, click on 'Add Folder Connection' and select the relevant folder. Drag and drop your boundary file to add to the map. For this example, we're using the watershed area boundaries of the Safe Clean Water Program, which funds stormwater projects in Los Angeles County.
 
-    <img src="https://github.com/user-attachments/assets/edd598a9-7760-4125-88ca-ba68711cd58a" alt="Image" width="1372" height="821"/>
+    <img src="https://github.com/user-attachments/assets/5a328fb1-0ae2-4c57-976b-27d4a2e4785a" alt="Image" width="1372" height="821"/>
 
 4)  If your analysis boundary is a shapefile (.shp), it needs to be changed into a geodatabase (.gdb) file. If your analysis boundary is already a .gdb file, skip to the next step. In the Contents pane, right-click on the analysis boundary layer, hover over 'Data', then select 'Export Features'. Export the layer to your project geodatabase.
 
-    <img src="https://github.com/user-attachments/assets/75ce2d5b-b0d8-4a49-a703-954831c12cd1" alt="Image" width="1374" height="821"/>
+    <img src="https://github.com/user-attachments/assets/5200cb79-fe1c-4c6c-a6c5-6a3997b3021b" alt="Image" width="1374" height="821"/>
 
-    <img src="https://github.com/user-attachments/assets/3cea5d54-00e9-4dc8-a73c-107455e6ff00" alt="Image" width="1373" height="821"/>
+    <img src="https://github.com/user-attachments/assets/78f3fb64-83c8-47ad-a202-71c85b577fbb" alt="Image" width="1373" height="821"/>
 
 5)  Double-click on the Summarize Demographics tool. Fill in the parameter fields, described in pop-up fields if you hover over the red asterisk. Parameters are also described in the following 'Tool Parameters' section. For 'Analysis ID', choose the field you would like to see exported in the summary output file. This field must be text and unique, i.e. each ID value can only appear once. For this example, we'll use the 'Watershed\_' field. Click 'Run', cross your fingers, and say a prayer to the GIS gods.
 
-    <img src="https://github.com/user-attachments/assets/c21cfddc-b711-4fd3-be05-acfd54703567" alt="Image" width="1371" height="818"/>
+    <img src="https://github.com/user-attachments/assets/6ded38de-9128-4797-98bf-81689f794da8" alt="Image" width="1371" height="818"/>
 
 6)  If all goes well, it should create an Excel report of summary demographic statistics exported to the folder you specified in the tool.
 
-    <img src="https://github.com/user-attachments/assets/4045a4b3-ffd8-4962-a24a-eceeaad7c4a1" alt="Image" width="1437" height="736"/>
+    <img src="https://github.com/user-attachments/assets/5337fa6f-ab38-43a5-a6f4-c7d69cad36b7" alt="Image" width="1437" height="736"/>
 
 ### Tool Parameters
 
@@ -66,7 +66,6 @@ When the user specifies analysis boundaries that do not align with Census bounda
 
 -   Analysis ID variable must be unique and in text format.
 -   Make sure there are no spaces in your analysis layer name.
--   Try exporting your analysis boundary layer to your project geodatabase if the tool does not work. [add steps on how to do this]
 
 ### Notes
 
@@ -76,7 +75,7 @@ When the user specifies analysis boundaries that do not align with Census bounda
 ### Data Dictionary
 
 | Variable | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | TotalPop | Total population |
 | MHI23 | Median Household Income |
 | White | White (non-Hispanic) |
