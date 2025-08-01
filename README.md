@@ -36,9 +36,11 @@ The **Tribal_Lands_and_Tracts** layer is a union of two layers, PRO_Indian_Lands
 
 3)  Assuming you already have shapefiles (.shp) or geodatabase (.gdb) files for your boundaries of interest, connect to where those files are located by right-clicking on 'Folders' in the Catalog pane again, click on 'Add Folder Connection' and select the relevant folder. Drag and drop your boundary file to add to the map. For this example, we're using the watershed area boundaries of the Safe Clean Water Program, which funds stormwater projects in Los Angeles County.
 
+    **Note**: analysis boundaries that are bigger than at least several block groups are most appropriate for use with this tool. Boundaries that are smaller will lead to highly uncertain estimates. Also, the tool can take some time to process depending on the number of polygons in your boundary file, as well as how big the polygons are. A suggested maximum for the number of polygons in your analysis boundary file would be 150.
+
     <img src="https://github.com/user-attachments/assets/5a328fb1-0ae2-4c57-976b-27d4a2e4785a" alt="Image" width="1372" height="821"/>
 
-4)  If your analysis boundary is a shapefile (.shp), it needs to be changed into a geodatabase (.gdb) file. If your analysis boundary is already a .gdb file, skip to the next step. In the Contents pane, right-click on the analysis boundary layer, hover over 'Data', then select 'Export Features'. Export the layer to your project geodatabase.
+4)  If your analysis boundary is a shapefile (.shp), it needs to be changed into a geodatabase (.gdb) file. To identify the type of file, you can hover your cursor over the file in the Catalog pane to view a pop-up window with file information. Next to "Type" it will say if the file is a "Shapefile" or "File Geodatabase Feature Class". If your analysis boundary is already a geodatabase file, skip to the next step. Otherwise, in the Contents pane, right-click on the analysis boundary layer, hover over 'Data', then select 'Export Features'. Export the layer to your project geodatabase, called "MyProject1" in this example, and the file will be saved as a .gdb file.
 
     <img src="https://github.com/user-attachments/assets/5200cb79-fe1c-4c6c-a6c5-6a3997b3021b" alt="Image" width="1374" height="821"/>
 
@@ -55,7 +57,7 @@ The **Tribal_Lands_and_Tracts** layer is a union of two layers, PRO_Indian_Lands
 ### Tool Parameters
 
 -   **Analysis boundaries** - feature layer of single or multiple boundaries on which to summarize demographics. Layer must be shapefile or geodatabase file.
--   **Analysis ID** - ID variable from the analysis boundaries layer over which to summarize. Field must be text and unique, meaning each ID value can only appear once. Do NOT select OBJECTID.
+-   **Analysis ID** - ID variable from the analysis boundaries layer over which to summarize. Field must be text and unique, meaning each ID value can only appear once.
 -   **Export file** - filename and location for summary output.
 
 ### Apportionment
@@ -66,6 +68,8 @@ When the user specifies analysis boundaries that do not align with Census bounda
 
 -   Analysis ID variable must be unique and in text format.
 -   Make sure there are no spaces in your analysis layer name.
+-   Analysis boundaries that are bigger than at least several block groups are most appropriate for use with this tool. Boundaries that are smaller will lead to highly uncertain estimates. The 'num_of_blocks' field in the output table is an indicator for the level of certainty. Boundaries with only a few blocks will have highly uncertain estimates, whereas boundaries with a high number of blocks will be relatively accurate.
+-   A suggested maximum for the number of polygons in your analysis boundary file would be 150. The tool can take some time to process depending on the number of polygons in your boundary file, as well as how big the polygons are.
 
 ### Notes
 
